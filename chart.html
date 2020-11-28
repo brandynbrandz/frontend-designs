@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+      integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <title>My Chart.js</title>
+  </head>
+  <body>
+    <div class="container">
+      <canvas id="myChart"></canvas>
+    </div>
+    <script>
+      let myChart = document.getElementById("myChart").getContext("2d");
+
+      // Global options
+
+      Chart.defaults.global.defaultFontFamily = "Lato";
+      Chart.defaults.global.defaultFontSize = 19;
+      Chart.defaults.global.defaultFOntColor = "#777";
+
+      let massPopChart = new Chart(myChart, {
+        type: "bar", //line, pie,horizontalBar
+        data: {
+          labels: [
+            "Nairobi",
+            "Thika",
+            "Mombasa",
+            "Nakuru",
+            "Eldoret",
+            "Kisumu",
+            "Malindi",
+          ],
+          datasets: [
+            {
+              label: "Projects Done",
+              data: [250, 90, 60, 120, 50, 80, 45],
+              backgroundColor: [
+                "rgba(191, 154, 144, 0.3)",
+                "rgba(2, 228, 216, 0.7)",
+                "rgba(12, 83, 197, 0.8)",
+                "rgba(184, 134, 200, 0.9) ",
+                "rgba(170, 93, 290, 0.5)",
+                "rgba(19, 15, 186, 0.1)",
+                "rgba(157, 168, 121, 0.6)",
+              ],
+              borderWidth: 1,
+              borderColor: "#777",
+              hoverBorderWidth: 3,
+              hoverBorderColor: "#000",
+            },
+          ],
+        },
+        options: {
+          title: {
+            display: true,
+            text: "Top cities where projects have been completed",
+            fontSize: 25,
+          },
+          legend: {
+            // display: false,
+            position: "right",
+            labels: {
+              fontColor: "#000",
+            },
+          },
+        },
+        layout: {
+          padding: {
+            left: 50,
+            right: 0,
+            bottom: 0,
+            left: 0,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
